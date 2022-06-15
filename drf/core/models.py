@@ -5,7 +5,7 @@ from django.conf import settings
 
 def upload_path(instance, filename):
     ext = filename.split('.')[-1]
-    return '/'.join(['image'], str(instance.userPro.id)+str(instance.nickName)+str('.')+str(ext))
+    return '/'.join(['image', str(instance.userPro.id)+str(instance.nickName)+str('.')+str(ext)])
 
 
 # usernameとパスワード以外で認証する場合カスタマイズする(オーバーライド)
@@ -83,4 +83,4 @@ class Message(models.Model):
     )
 
     def __str__(self):
-        return self.sender
+        return str(self.sender)

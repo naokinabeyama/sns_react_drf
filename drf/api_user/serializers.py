@@ -13,15 +13,15 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = get_user_model().objects.create_user(**validated_data)
         Token.objects.create(user=user)
-        return 
+        return user
 
 
 class ProfileSerializer(serializers.ModelSerializer):
-    created_on = serializers.DateField(format='%Y-%m-%d', read_only=True)
+    created_on = serializers.DateTimeField(format='%Y-%m-%d', read_only=True)
 
     class Meta:
         model = Profiel
-        fields = ('id', 'nickName', 'userPro', 'created_at', 'img')
+        fields = ('id', 'nickName', 'userPro', 'created_on', 'img')
         extra_kwargs = {'userPro': {'read_only': True}}
 
 
