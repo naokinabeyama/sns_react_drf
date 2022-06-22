@@ -3,7 +3,7 @@ import { createTheme } from "@material-ui/core/styles";
 import { ThemeProvider as MuiThemeProvier } from '@material-ui/core/styles'
 import indigo from '@material-ui/core/colors/indigo'
 import Navbar from './components/Navbar';
-
+import ApiContextProvider from './context/ApiContext';
 
 
 
@@ -22,9 +22,11 @@ const theme = createTheme({
 
 function App() {
   return (
-    <MuiThemeProvier theme={theme}>
-      <Navbar />
-    </MuiThemeProvier>
+    <ApiContextProvider>
+      <MuiThemeProvier theme={theme}>
+        <Navbar />
+      </MuiThemeProvier>
+    </ApiContextProvider>
   );
 }
 
