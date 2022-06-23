@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import {START_FETCH, FETCH_SUCCESS, ERROR_CATCHED, INPUT_EDIT, TOGGLE_MODE} from './ActionTypes'
+import { START_FETCH, FETCH_SUCCESS, ERROR_CATCHED, INPUT_EDIT, TOGGLE_MODE } from './ActionTypes';
 
 
 
@@ -98,7 +98,7 @@ const loginReducer = (state, action) => {
         }
         default:
             return state;
-    }
+    };
 };
 
 const Login = (props) => {
@@ -112,8 +112,8 @@ const Login = (props) => {
             type: INPUT_EDIT,
             inputName: 'state.credentialLog',
             payload: cred,
-        })
-    }
+        });
+    };
 
     const inputChangedReg = () => event => {
         const cred = state.credentialsReg;
@@ -122,11 +122,11 @@ const Login = (props) => {
             type: INPUT_EDIT,
             inputName: 'state.credentialReg',
             payload: cred,
-        })
-    }
+        });
+    };
 
     const login = async (event) => {
-        event.preventDefault()
+        event.preventDefault();
         if (state.isLoginView) {
             try {
                 dispatch({ type: START_FETCH })
@@ -138,7 +138,7 @@ const Login = (props) => {
                 dispatch({ type: FETCH_SUCCESS })
             } catch {
                 dispatch({ type: ERROR_CATCHED })
-            }
+            };
         } else {
             try {
                 dispatch({ type: START_FETCH })
@@ -149,13 +149,13 @@ const Login = (props) => {
                 dispatch({ type: TOGGLE_MODE })
             } catch {
                 dispatch({ type: ERROR_CATCHED })
-            }
-        }
-    }
+            };
+        };
+    };
 
     const toggleView = () => {
         dispatch({ type: TOGGLE_MODE })
-    }
+    };
 
     return (
         <Container maxWidth='xs'>

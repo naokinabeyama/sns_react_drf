@@ -1,4 +1,3 @@
-import React from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -26,7 +25,7 @@ const Navbar = (props) => {
     const Logout = () => event => {
         props.cookies.remove('current-token');
         window.location.href = '/';
-    }
+    };
 
     return (
         <AppBar position='static'>
@@ -42,8 +41,8 @@ const Navbar = (props) => {
                 </button>
             </Toolbar>
         </AppBar>
-    )
-}
+    );
+};
 
 
 export default withCookies(Navbar) 
