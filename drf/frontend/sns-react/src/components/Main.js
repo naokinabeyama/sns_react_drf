@@ -21,7 +21,7 @@ const Main = () => {
         <Grid container>
             <Grid item xs={4}>
                 <div className='app-profiles'>
-                   {/* {listProfiles} */}
+                   {listProfiles}
                 </div>
             </Grid>
 

@@ -150,9 +150,9 @@ const ApiContextProvider = (props) => {
                 }
             })
             // 自分のプロフィール
-            setProfile(res.data)
+            setProfile(res.data);
         } catch {
-            console.log('error')
+            console.log('error');
         };
     };
 
@@ -183,7 +183,7 @@ const ApiContextProvider = (props) => {
             });
         } catch {
             console.log('error');
-        }
+        };
     };
 
 
