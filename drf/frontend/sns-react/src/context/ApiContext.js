@@ -192,7 +192,7 @@ const ApiContextProvider = (props) => {
     // uploadDataAsk 申請されたデータのapprovalをtrueに変えたデータ
     const changeApprovalRequest = async (uploadDataAsk, ask) => {
         try {
-            const res = await axios.post(`http://localhost:8000/api/user/approval/${ask.id}`, uploadDataAsk, {
+            const res = await axios.post(`http://localhost:8000/api/user/approval/${ask.id}/`, uploadDataAsk, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Token ${token}`

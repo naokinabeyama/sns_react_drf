@@ -1,3 +1,6 @@
+/* Google font */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital@1&display=swap');
+
 .App {
   text-align: center;
 }
@@ -96,4 +99,81 @@
   font-size: 22px;
   border: none;
   outline: none;
+}
+
+.photo {
+  background-color: transparent;
+  color: lightgray;
+  font-size: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.user {
+  background-color: transparent;
+  color: lightgray;
+  font-size: 26px;
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.user-invalid {
+  background-color: transparent;
+  color: dimgray;
+  font-size: 26px;
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  cursor: none;
+}
+
+.trash {
+  background-color: transparent;
+  color: lightgray;
+  font-size: 24px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+h3 {
+  color: black;
+  font-family: 'Comic Neue', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+
+.list-item h4 {
+  color: lightgrey;
+  font-family: 'Comic Neue', cursive;
+}
+
+.btn-modal {
+  background-color: transparent;
+  color: grey;
+  margin-right: 7px;
+  font-size: 22px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.mail {
+  background-color: transparent;
+  color: lightgrey;
+  margin-right: 25px;
+  font-size: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
