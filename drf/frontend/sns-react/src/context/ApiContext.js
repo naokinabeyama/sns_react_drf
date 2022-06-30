@@ -159,7 +159,7 @@ const ApiContextProvider = (props) => {
     // 友達申請
     const newRequestFriend = async (askData) => {
         try {
-            const res = await axios.post('http://localhost:8000/api/user/approval', askData, {
+            const res = await axios.post('http://localhost:8000/api/user/approval/', askData, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Token ${token}`
@@ -167,7 +167,7 @@ const ApiContextProvider = (props) => {
             })
             setAskListFull([...askListFull, res.data]);
         } catch {
-            console.log('error');
+            console.log('approval error');
         };
     };
 
@@ -175,7 +175,7 @@ const ApiContextProvider = (props) => {
     // メッセージ
     const sendDmCont = async (uploadDM) => {
         try {
-            await axios.post('http://localhost:8000/api/dm/message', uploadDM, {
+            await axios.post('http://localhost:8000/api/dm/message/', uploadDM, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Token ${token}`
@@ -199,8 +199,8 @@ const ApiContextProvider = (props) => {
                 }
             });
             // 友達申請リスト
-            setAskList(askList.map(item => (item.id === ask.id ? res.data : item)));
-            
+            setAskList(askList.map((item) => (item.id === ask.id ? res.data : item)));
+
             // 申請をtrueにした後fromとtoを逆にする
             const newDataAsk = new FormData();
             newDataAsk.append('askTo', ask.askFrom);
@@ -214,6 +214,7 @@ const ApiContextProvider = (props) => {
 
             // 同時に申請をしてしまった場合の処理
             const resp = askListFull.filter(item => { return (item.askFrom === profile.userPro && item.askTo === ask.askFrom) });
+
             // 申請
             !resp[0] ?
                 await axios.post('http://localhost:8000/api/user/approval/', newDataAsk, {
@@ -224,7 +225,7 @@ const ApiContextProvider = (props) => {
                 })
                 :
                 //同時申請
-                await axios.post(`http://localhost:8000/api/user/approval/${resp[0].id}`, newDataAskPut, {
+                await axios.post(`http://localhost:8000/api/user/approval/${resp[0].id}/`, newDataAskPut, {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Token ${token}`

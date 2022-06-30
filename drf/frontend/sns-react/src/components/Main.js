@@ -5,6 +5,7 @@ import { GoMail } from 'react-icons/go';
 import { BsFillPeopleFill } from 'react-icons/bs';
 import Profile from './Profile';
 import ProfileManager from './ProfileManager';
+import Ask from './Ask';
 
 
 const Main = () => {
@@ -14,7 +15,7 @@ const Main = () => {
     // 自分以外の全プロフィールを取り出しProfile.jsへ
     // 引数にプロフィールと友達申請がしているorされているを渡す
     const listProfiles = filterProfiles && (
-        filterProfiles.map((filprof) => <Profile key={filprof.id} profileData={filprof} askData={askListFull.filter((ask) => { return (filprof.userPro === ask.From) || (filprof.userPro === ask.To) })} />)
+        filterProfiles.map((filprof) => <Profile key={filprof.id} profileData={filprof} askData={askListFull.filter((ask) => { return (filprof.userPro === ask.From) | (filprof.userPro === ask.askTo) })} />)
     );
 
 
@@ -35,7 +36,9 @@ const Main = () => {
                     Approval request list
                 </h3>
                 <div className='app-details'>
-
+                    <ul>
+                        {profile.id && askList.map((ask) => <Ask key={ask.id} ask={ask} prof={profiles.filter((item) => { return item.userPro === ask.askFrom })} />)}
+                    </ul>
                 </div>
             </Grid>
 

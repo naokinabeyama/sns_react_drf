@@ -46,7 +46,7 @@ const Profile = ({profileData, askData}) => {
                         Ask as Friend
                     </Button>
                 ):(
-                    <Button size='small' className={classes.button} variant='contained' color='primary' disabled>
+                    <Button size='small' className={classes.button} variant='contained' color='primary' disabled >
                         Ask as Friend
                     </Button>
                 )}

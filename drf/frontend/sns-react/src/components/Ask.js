@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import Modal from 'react-modal';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import makeStyles from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { RiMailAddLine } from 'react-icons/ri';
 import { IoIosSend } from 'react-icons/io';
 import { IoMdClose } from 'react-icons/io';
@@ -20,8 +20,9 @@ const useStyles = makeStyles((theme) => ({
 })
 );
 
-// prof 友達申請を送ってきたユーザー
-const Ask = ({ask, prof}) => {
+// prof 友達申請を送ってきたユーザープロフィール
+// ask 自分宛に送られてきた友達申請
+const Ask = ({ ask, prof }) => {
     const classes = useStyles();
     Modal.setAppElement('#root');
     const { changeApprovalRequest, sendDMCont } = useContext(ApiContext);
@@ -57,11 +58,10 @@ const Ask = ({ask, prof}) => {
 
     const changeApproval = () => {
         const uploadDataAsk = new FormData();
-        uploadDataAsk.append('askTo', ask.aksTo);
+        uploadDataAsk.append('askTo', ask.askTo);
         uploadDataAsk.append('approved', true);
         changeApprovalRequest(uploadDataAsk, ask);
     }
-
 
     return (
         <li className='list-item'>
@@ -69,11 +69,11 @@ const Ask = ({ask, prof}) => {
             {/* 友達承認していない場合承認ボタンを表示
                 承認している場合メッセージボタンを表示
             */}
-            {!ask.approved ?
-                <Button size='samll' className={classes.button} variant='contained' color='primary' onClick={() => changeApproval()}>Approve</Button>
-            :
+            {!ask.approved ? (
+                <Button size='small' className={classes.button} variant='contained' color='primary' onClick={() => changeApproval()}>Approve</Button>
+            ) : (
                 <button className='mail' onClick={()=>setModalIsOpen(true)}><RiMailAddLine /></button>
-            }
+            )}
             {/* ポップアップ画面外をクリックしたらfalseになり閉じる */}
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} style={customStyles}>
                 <Typography>Message</Typography>
