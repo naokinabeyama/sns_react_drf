@@ -6,6 +6,7 @@ import { BsFillPeopleFill } from 'react-icons/bs';
 import Profile from './Profile';
 import ProfileManager from './ProfileManager';
 import Ask from './Ask';
+import InboxDM from './InboxDM';
 
 
 const Main = () => {
@@ -15,7 +16,11 @@ const Main = () => {
     // 自分以外の全プロフィールを取り出しProfile.jsへ
     // 引数にプロフィールと友達申請がしているorされているを渡す
     const listProfiles = filterProfiles && (
-        filterProfiles.map((filprof) => <Profile key={filprof.id} profileData={filprof} askData={askListFull.filter((ask) => { return (filprof.userPro === ask.From) | (filprof.userPro === ask.askTo) })} />)
+        filterProfiles.map((filprof) => <Profile key={filprof.id} profileData={filprof} askData={askListFull.filter((ask) => {
+            return (
+                (filprof.userPro === ask.askFrom) | (filprof.userPro === ask.askTo)
+            );
+        })} />)
     );
 
 
@@ -23,7 +28,9 @@ const Main = () => {
         <Grid container>
             <Grid item xs={4}>
                 <div className='app-profiles'>
-                   {listProfiles}
+                    <div className='task-list'>
+                        {listProfiles}
+                    </div>
                 </div>
             </Grid>
 
@@ -36,9 +43,11 @@ const Main = () => {
                     Approval request list
                 </h3>
                 <div className='app-details'>
-                    <ul>
-                        {profile.id && askList.map((ask) => <Ask key={ask.id} ask={ask} prof={profiles.filter((item) => { return item.userPro === ask.askFrom })} />)}
-                    </ul>
+                    <div className='task-list'>
+                        <ul>
+                            {profile.id && askList.map((ask) => <Ask key={ask.id} ask={ask} prof={profiles.filter((item) => { return item.userPro === ask.askFrom })} />)}
+                        </ul>
+                    </div>
                 </div>
             </Grid>
 
@@ -48,7 +57,11 @@ const Main = () => {
                     DM Inbox
                 </h3>
                 <div className='app-dms'>
-
+                    <div className='task-list'>
+                        <ul>
+                            {profile.id && inbox.map((dm) => <InboxDM key={dm.id} dm={dm} prof={profiles.filter((item) => { return item.userPro === dm.sender })} />)}
+                        </ul>
+                    </div>
                 </div>
             </Grid>
           

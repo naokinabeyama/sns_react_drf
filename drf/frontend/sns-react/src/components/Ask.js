@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 const Ask = ({ ask, prof }) => {
     const classes = useStyles();
     Modal.setAppElement('#root');
-    const { changeApprovalRequest, sendDMCont } = useContext(ApiContext);
+    const { changeApprovalRequest, sendDmCont } = useContext(ApiContext);
     // Modal(ポップアップ)が開いているか閉じているか
     const [modalIsOpen, setModalIsOpen] = useState(false);
     // ダイレクトメッセージのテキスト
@@ -41,7 +41,7 @@ const Ask = ({ ask, prof }) => {
     };
 
     // メッセージ内容
-    const handleInputChange = () => event => {
+    const handleInputChange = () => (event) => {
         const value = event.target.value;
         setText(value);
     };
@@ -51,7 +51,7 @@ const Ask = ({ ask, prof }) => {
         const uploadDM = new FormData();
         uploadDM.append('receiver', ask.askFrom);
         uploadDM.append('message', text);
-        sendDMCont(uploadDM);
+        sendDmCont(uploadDM);
         setModalIsOpen(false);
     }
 

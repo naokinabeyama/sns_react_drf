@@ -153,6 +153,14 @@ h3 {
   padding-right: 20px;
 }
 
+.task-list {
+  width: 100%;
+  margin: auto;
+  max-height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
 .list-item h4 {
   color: lightgrey;
   font-family: 'Comic Neue', cursive;
@@ -177,3 +185,19 @@ h3 {
   outline: none;
   cursor: pointer;
 }
+
+/*Scroller*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #aaa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 10px;
+}
+
