@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Route, BrowserRouter } from 'react-router-dom';
 import Login from './components/Login';
 import { CookiesProvider } from 'react-cookie';
+import OneToOneDM from './components/OneToOneDM';
 
 const routing = (
   <React.StrictMode>
@@ -13,6 +14,7 @@ const routing = (
       <CookiesProvider>
         <Route exact path='/' component={Login} />
         <Route exact path='/profiles' component={App} />
+        <Route exact path='/onetoonedm' component={OneToOneDM} />
       </CookiesProvider>
     </BrowserRouter>
   </React.StrictMode>

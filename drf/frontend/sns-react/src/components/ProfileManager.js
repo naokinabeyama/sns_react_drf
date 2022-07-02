@@ -2,7 +2,7 @@ import {useContext} from 'react'
 import { ApiContext } from '../context/ApiContext';
 import { makeStyles } from '@material-ui/core/styles';
 import LocationOn from '@material-ui/icons/LocationOn';
-import { BsFillPersonCheckFill, BsPersonCheckFill } from 'react-icons/bs';
+import { BsFillPersonCheckFill } from 'react-icons/bs';
 import { MdAddAPhoto } from 'react-icons/md';
 import { BsTrash } from 'react-icons/bs';
 import { BsPersonPlus } from 'react-icons/bs';

@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { RiMailAddLine } from 'react-icons/ri';
 import { IoIosSend } from 'react-icons/io';
 import { IoMdClose } from 'react-icons/io';
+import CardMedia from '@material-ui/core/CardMedia';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -65,6 +66,11 @@ const Ask = ({ ask, prof }) => {
 
     return (
         <li className='list-item'>
+            {prof[0].img ? (
+                <CardMedia style={{ minWidth: 30 }} image={prof[0].img} />
+            ):(
+                <CardMedia style={{ minWidth: 30 }} image='http://127.0.0.1:8000/media/image/null.png' />
+            )}
             <h4>{prof[0].nickName}</h4>
             {/* 友達承認していない場合承認ボタンを表示
                 承認している場合メッセージボタンを表示

@@ -59,7 +59,7 @@ const Main = () => {
                 <div className='app-dms'>
                     <div className='task-list'>
                         <ul>
-                            {profile.id && inbox.map((dm) => <InboxDM key={dm.id} dm={dm} prof={profiles.filter((item) => { return item.userPro === dm.sender })} />)}
+                            {profile.id && inbox.map((dm) => <InboxDM key={dm.id} dms={inbox} dm={dm} prof={profiles.filter((item) => { return item.userPro === dm.sender })} myprof={profile} />)}
                         </ul>
                     </div>
                 </div>
